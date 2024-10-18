@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hellome
+  labels:
+    app: hellome
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hellome
+  template:
+    metadata:
+      labels:
+        app: hellome
+    spec:
+      containers:
+        - name: hellome
+          image: 342541395235.dkr.ecr.us-west-1.amazonaws.com/hellome:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
